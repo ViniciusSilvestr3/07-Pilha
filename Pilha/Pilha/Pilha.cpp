@@ -85,15 +85,22 @@ void push()
 
 	cout << "Digite o elemento: ";
 	cin >> novo->valor;
-	novo->prox = NULL;
-
+	novo->prox = topo;
+	topo = novo;
+	cout << "Elemento inserido na pilha.\n";
 
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "A pilha esta vazia.\n";
+		return;
+	}
 
-	
-
+	NO* paraExcluir = topo; 
+	topo = topo->prox;      
+	cout << "Elemento removido: " << paraExcluir->valor << endl;
+	free(paraExcluir);     
 }
 
